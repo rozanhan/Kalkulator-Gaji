@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Superindo {
+public class revPjakhir {
 
     public static long hitungGaji(long jamKerja, long tarifPerJam) {
         long gaji;
