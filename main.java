@@ -1,12 +1,12 @@
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class PjAkhr {
+public class Superindo {
 
     public static long hitungGaji(long jamKerja, long tarifPerJam) {
         long gaji;
-        double lembur = 0;
 
         if (jamKerja <= 40) {
             gaji = jamKerja * tarifPerJam;
@@ -33,6 +33,7 @@ public class PjAkhr {
         }
         return gaji - (long) pajak;
     }
+
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -80,6 +81,54 @@ public class PjAkhr {
             System.out.printf("Gaji Bersih: Rp %,d\n", gajiBersih[i]);
             System.out.println("----------------------------");
         }
-        input.close();
-    }
+        System.out.println("Apakah ada data yang salah? (y/n)");
+        String valid = input.nextLine();
+        if(valid.equalsIgnoreCase("y")){
+            System.out.println("Data karyawan berapa yang ingin anda ubah?");
+            int dataUbah = input.nextInt();
+            int i = dataUbah - 1;
+            System.out.printf("Nama: %s\n", namaKaryawan[i]);
+            System.out.printf("Jabatan: %s\n", jabatan[i]);
+            System.out.printf("Jam Kerja: %d jam\n", jamKerjaKaryawan[i]);
+            System.out.printf("Tarif per Jam: Rp %,d\n", tarifPerJamKaryawan[i]);
+            System.out.printf("Gaji Sebelum Pajak: Rp %,d\n", gajiKaryawan[i]);
+            System.out.printf("Gaji Bersih: Rp %,d\n", gajiBersih[i]);
+            System.out.println("Apakah anda ingin mengubah data karyawan ini? (y/n)");
+            String val2 = input.next();
+            if(val2.equalsIgnoreCase("y")){
+                System.out.println("Masukan data yang baru: ");
+                input.nextLine();
+                System.out.print("Nama: ");
+                namaKaryawan[i] = input.nextLine();
+                System.out.print("Jabatan: ");
+                jabatan[i] = input.nextLine();
+                System.out.print("Jam kerja: ");
+                jamKerjaKaryawan[i] = input.nextLong();
+                System.out.print("Tarif per jam: ");
+                tarifPerJamKaryawan[i] = input.nextLong();
+
+
+                System.out.println("Data yang sudah diperbarui: ");
+                System.out.println("");
+                System.out.println("");
+
+
+                System.out.println("\n=== Laporan Gaji Karyawan ===");
+                System.out.println(tanggalwaktu);
+                System.out.println("----------------------------");
+                for (int j = 0; j < jumlahKaryawan; j++) {
+                    System.out.printf("Nama: %s\n", namaKaryawan[j]);
+                    System.out.printf("Jabatan: %s\n", jabatan[j]);
+                    System.out.printf("Jam Kerja: %d jam\n", jamKerjaKaryawan[j]);
+                    System.out.printf("Tarif per Jam: Rp %,d\n", tarifPerJamKaryawan[j]);
+                    System.out.printf("Gaji Sebelum Pajak: Rp %,d\n", gajiKaryawan[j]);
+                    System.out.printf("Gaji Bersih: Rp %,d\n", gajiBersih[j]);
+                    System.out.println("----------------------------");
+            }
+        } else{
+            System.out.println("Terima kasih, Semoga harimu menyenangkan");
+        }
+    } else{ System.out.println("Terima kasih, Semoga harimu menyenangkan");}
+    input.close();
+}
 }
